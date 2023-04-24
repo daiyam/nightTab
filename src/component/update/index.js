@@ -628,11 +628,31 @@ update.mod['7.5.0'] = function(data) {
 };
 
 update.mod['7.6.0'] = function(data) {
+
   data.state.bookmark.area =  {
     justify: 'left'
   };
-  
+
+  if (data.state.bookmark.style === 'block') {
+
+    data.state.bookmark.style = {
+      type: 'block',
+      width: 11,
+      height: 10
+    };
+
+  } else {
+
+    data.state.bookmark.style = {
+      type: 'list',
+      width: 20,
+      height: 4
+    };
+
+  }
+
   return data;
+
 };
 
 update.run = (data) => {

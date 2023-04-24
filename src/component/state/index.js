@@ -66,7 +66,7 @@ state.default = {
     shadow: { show: true },
     hoverScale: { show: true },
     orientation: 'bottom',
-    style: 'block',
+    style: { type: 'block', width: 11, height: 10 },
     newTab: false,
     edit: false,
     add: false,
@@ -124,7 +124,10 @@ state.minMax = {
     date: { size: { min: 50, max: 500 } },
     search: { size: { min: 50, max: 500 }, width: { size: { min: 10, max: 100 } } }
   },
-  bookmark: { size: { min: 50, max: 500 } },
+  bookmark: {
+    size: { min: 50, max: 500 },
+    style: { width: { min: 4, max: 30 }, height: { min: 4, max: 20 } },
+  },
   group: {
     name: { size: { min: 50, max: 500 } },
     toolbar: { size: { min: 50, max: 500 } }
@@ -240,7 +243,7 @@ state.option = {
     area: { justify: ['left', 'center', 'right'] },
     item: { justify: ['left', 'center', 'right'] },
     orientation: ['top', 'bottom'],
-    style: ['block', 'list']
+    style: { type: ['block', 'list'] }
   },
   group: {
     area: { justify: ['left', 'center', 'right'] },

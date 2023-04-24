@@ -152,6 +152,11 @@ bookmark.item = {
   },
   render: () => {
 
+    const styleData = state.get.current().bookmark.style;
+
+    bookmark.element.area.style.setProperty('--group-cell-width', `${styleData.width}em`);
+    bookmark.element.area.style.setProperty('--group-cell-height', `${styleData.height}em`);
+
     const addBookmarkToGroup = (bookmarkData, groupIndex, bookmarkIndex) => {
 
       const currentBookmarkData = new StagedBookmark(bookmarkData);
@@ -365,7 +370,7 @@ bookmark.add = {
       content: bookmarkForm.form(),
       successText: message.get('bookmarkAddSuccessText'),
       cancelText: message.get('bookmarkAddCancelText'),
-      width: (state.get.current().bookmark.style === 'block') ? 60 : 70,
+      width: (state.get.current().bookmark.style.type === 'block') ? 60 : 70,
       maxHeight: true,
       openAction: () => {
 
@@ -557,7 +562,7 @@ bookmark.init = () => {
     'bookmark.area.justify',
     'bookmark.item.justify',
     'bookmark.orientation',
-    'bookmark.style'
+    'bookmark.style.type'
   ]);
   applyCSSState([
     'bookmark.show',
