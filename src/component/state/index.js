@@ -96,7 +96,8 @@ state.default = {
         end: { hsl: { h: 219, s: 28, l: 12 }, rgb: { r: 22, g: 28, b: 39 } }
       },
       image: { url: '', blur: 0, grayscale: 0, scale: 100, accent: 0, opacity: 100, vignette: { opacity: 0, start: 90, end: 70 } },
-      video: { url: '', blur: 0, grayscale: 0, scale: 100, accent: 0, opacity: 100, vignette: { opacity: 0, start: 90, end: 70 } }
+      video: { url: '', blur: 0, grayscale: 0, scale: 100, accent: 0, opacity: 100, vignette: { opacity: 0, start: 90, end: 70 } },
+      timeofday: { data: '', blur: 0, grayscale: 0, scale: 100, accent: 0, opacity: 100, vignette: { opacity: 0, start: 90, end: 70 } }
     },
     opacity: { general: 100 },
     layout: { color: { by: 'theme', hsl: { h: 0, s: 0, l: 0 }, rgb: { r: 0, g: 0, b: 0 }, blur: 0, opacity: 10 }, divider: { size: 0 } },
@@ -203,7 +204,8 @@ state.minMax = {
         },
       },
       image: { blur: { min: 0, max: 200 }, grayscale: { min: 0, max: 100 }, scale: { min: 100, max: 400 }, accent: { min: 0, max: 100 }, opacity: { min: 0, max: 100 }, vignette: { opacity: { min: 0, max: 100 }, start: { min: 0, max: 100 }, end: { min: 0, max: 100 } } },
-      video: { blur: { min: 0, max: 200 }, grayscale: { min: 0, max: 100 }, scale: { min: 100, max: 400 }, accent: { min: 0, max: 100 }, opacity: { min: 0, max: 100 }, vignette: { opacity: { min: 0, max: 100 }, start: { min: 0, max: 100 }, end: { min: 0, max: 100 } } }
+      video: { blur: { min: 0, max: 200 }, grayscale: { min: 0, max: 100 }, scale: { min: 100, max: 400 }, accent: { min: 0, max: 100 }, opacity: { min: 0, max: 100 }, vignette: { opacity: { min: 0, max: 100 }, start: { min: 0, max: 100 }, end: { min: 0, max: 100 } } },
+      timeofday: { blur: { min: 0, max: 200 }, grayscale: { min: 0, max: 100 }, scale: { min: 100, max: 400 }, accent: { min: 0, max: 100 }, opacity: { min: 0, max: 100 }, vignette: { opacity: { min: 0, max: 100 }, start: { min: 0, max: 100 }, end: { min: 0, max: 100 } } },
     },
     radius: { min: 0, max: 500 },
     shadow: { min: 0, max: 300 },
@@ -254,7 +256,7 @@ state.option = {
     layout: { color: { by: ['theme', 'custom'] } },
     header: { color: { by: ['theme', 'custom'] } },
     bookmark: { color: { by: ['theme', 'custom'] } },
-    background: { type: ['theme', 'accent', 'color', 'gradient', 'image', 'video'] }
+    background: { type: ['theme', 'accent', 'color', 'gradient', 'image', 'video', 'timeofday'] }
   }
 };
 

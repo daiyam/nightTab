@@ -500,6 +500,7 @@ layoutSetting.page = (parent) => {
         theme.background.image.render();
         theme.background.video.clear();
         theme.background.video.render();
+        theme.background.timeofday.load();
         layout.overscroll.bind();
         data.save();
       }

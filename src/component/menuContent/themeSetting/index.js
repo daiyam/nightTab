@@ -120,6 +120,14 @@ themeSetting.disable = () => {
       themeSetting.control.background.video.opacity.disable();
       themeSetting.control.background.video.vignette.opacity.disable();
       themeSetting.control.background.video.vignette.range.disable();
+      themeSetting.control.background.timeofday.data.disable();
+      themeSetting.control.background.timeofday.blur.disable();
+      themeSetting.control.background.timeofday.grayscale.disable();
+      themeSetting.control.background.timeofday.scale.disable();
+      themeSetting.control.background.timeofday.accent.disable();
+      themeSetting.control.background.timeofday.opacity.disable();
+      themeSetting.control.background.timeofday.vignette.opacity.disable();
+      themeSetting.control.background.timeofday.vignette.range.disable();
       break;
 
     case 'color':
@@ -145,6 +153,14 @@ themeSetting.disable = () => {
       themeSetting.control.background.video.opacity.disable();
       themeSetting.control.background.video.vignette.opacity.disable();
       themeSetting.control.background.video.vignette.range.disable();
+      themeSetting.control.background.timeofday.data.disable();
+      themeSetting.control.background.timeofday.blur.disable();
+      themeSetting.control.background.timeofday.grayscale.disable();
+      themeSetting.control.background.timeofday.scale.disable();
+      themeSetting.control.background.timeofday.accent.disable();
+      themeSetting.control.background.timeofday.opacity.disable();
+      themeSetting.control.background.timeofday.vignette.opacity.disable();
+      themeSetting.control.background.timeofday.vignette.range.disable();
       break;
 
     case 'gradient':
@@ -170,6 +186,14 @@ themeSetting.disable = () => {
       themeSetting.control.background.video.opacity.disable();
       themeSetting.control.background.video.vignette.opacity.disable();
       themeSetting.control.background.video.vignette.range.disable();
+      themeSetting.control.background.timeofday.data.disable();
+      themeSetting.control.background.timeofday.blur.disable();
+      themeSetting.control.background.timeofday.grayscale.disable();
+      themeSetting.control.background.timeofday.scale.disable();
+      themeSetting.control.background.timeofday.accent.disable();
+      themeSetting.control.background.timeofday.opacity.disable();
+      themeSetting.control.background.timeofday.vignette.opacity.disable();
+      themeSetting.control.background.timeofday.vignette.range.disable();
       break;
 
     case 'image':
@@ -195,6 +219,14 @@ themeSetting.disable = () => {
       themeSetting.control.background.video.opacity.disable();
       themeSetting.control.background.video.vignette.opacity.disable();
       themeSetting.control.background.video.vignette.range.disable();
+      themeSetting.control.background.timeofday.data.disable();
+      themeSetting.control.background.timeofday.blur.disable();
+      themeSetting.control.background.timeofday.grayscale.disable();
+      themeSetting.control.background.timeofday.scale.disable();
+      themeSetting.control.background.timeofday.accent.disable();
+      themeSetting.control.background.timeofday.opacity.disable();
+      themeSetting.control.background.timeofday.vignette.opacity.disable();
+      themeSetting.control.background.timeofday.vignette.range.disable();
       break;
 
     case 'video':
@@ -220,6 +252,47 @@ themeSetting.disable = () => {
       themeSetting.control.background.video.opacity.enable();
       themeSetting.control.background.video.vignette.opacity.enable();
       themeSetting.control.background.video.vignette.range.enable();
+      themeSetting.control.background.timeofday.data.disable();
+      themeSetting.control.background.timeofday.blur.disable();
+      themeSetting.control.background.timeofday.grayscale.disable();
+      themeSetting.control.background.timeofday.scale.disable();
+      themeSetting.control.background.timeofday.accent.disable();
+      themeSetting.control.background.timeofday.opacity.disable();
+      themeSetting.control.background.timeofday.vignette.opacity.disable();
+      themeSetting.control.background.timeofday.vignette.range.disable();
+      break;
+      
+    case 'timeofday':
+      themeSetting.control.background.color.disable();
+      themeSetting.control.background.gradient.angle.disable();
+      themeSetting.control.background.gradient.start.disable();
+      themeSetting.control.background.gradient.end.disable();
+      themeSetting.control.background.image.url.disable();
+      themeSetting.control.background.image.urlHelper.disable();
+      themeSetting.control.background.image.blur.disable();
+      themeSetting.control.background.image.grayscale.disable();
+      themeSetting.control.background.image.scale.disable();
+      themeSetting.control.background.image.accent.disable();
+      themeSetting.control.background.image.opacity.disable();
+      themeSetting.control.background.image.vignette.opacity.disable();
+      themeSetting.control.background.image.vignette.range.disable();
+      themeSetting.control.background.video.url.disable();
+      themeSetting.control.background.video.urlHelper.disable();
+      themeSetting.control.background.video.blur.disable();
+      themeSetting.control.background.video.grayscale.disable();
+      themeSetting.control.background.video.scale.disable();
+      themeSetting.control.background.video.accent.disable();
+      themeSetting.control.background.video.opacity.disable();
+      themeSetting.control.background.video.vignette.opacity.disable();
+      themeSetting.control.background.video.vignette.range.disable();
+      themeSetting.control.background.timeofday.data.enable();
+      themeSetting.control.background.timeofday.blur.enable();
+      themeSetting.control.background.timeofday.grayscale.enable();
+      themeSetting.control.background.timeofday.scale.enable();
+      themeSetting.control.background.timeofday.accent.enable();
+      themeSetting.control.background.timeofday.opacity.enable();
+      themeSetting.control.background.timeofday.vignette.opacity.enable();
+      themeSetting.control.background.timeofday.vignette.range.enable();
       break;
 
   }
@@ -1279,7 +1352,8 @@ themeSetting.background = (parent) => {
         { id: 'theme-background-type-color', labelText: message.get('menuContentThemeBackgroundTypeColor'), value: 'color' },
         { id: 'theme-background-type-gradient', labelText: message.get('menuContentThemeBackgroundTypeGradient'), value: 'gradient' },
         { id: 'theme-background-type-image', labelText: message.get('menuContentThemeBackgroundTypeImage'), value: 'image' },
-        { id: 'theme-background-type-video', labelText: message.get('menuContentThemeBackgroundTypeVideo'), value: 'video' }
+        { id: 'theme-background-type-video', labelText: message.get('menuContentThemeBackgroundTypeVideo'), value: 'video' },
+        { id: 'theme-background-type-timeofday', labelText: message.get('menuContentThemeBackgroundTypeTimeOfDay'), value: 'timeofday' }
       ],
       groupName: 'theme-background-type',
       path: 'theme.background.type',
@@ -1664,6 +1738,144 @@ themeSetting.background = (parent) => {
           }
         })
       }
+    },
+    timeofday: {
+      alert: new Alert({
+        iconName: 'info',
+        children: [
+          node(`p:${message.get('menuContentThemeBackgroundTimeOfDayAlertPara1')}|class:small`),
+        ]
+      }),
+      data: new Control_textarea({
+        object: state.get.current(),
+        path: 'theme.background.timeofday.data',
+        id: 'theme-background-timeofday-data',
+        value: state.get.current().theme.background.timeofday.data,
+        placeholder: message.get('menuContentThemeBackgroundTimeOfDayDataPlaceholder'),
+        labelText: message.get('menuContentThemeBackgroundTimeOfDayDataLabel'),
+        action: () => {
+          theme.background.timeofday.load();
+          data.save();
+        }
+      }),
+      blur: new Control_sliderSlim({
+        object: state.get.current(),
+        path: 'theme.background.timeofday.blur',
+        id: 'theme-background-timeofday-blur',
+        labelText: message.get('menuContentThemeBackgroundImageBlur'),
+        value: state.get.current().theme.background.timeofday.blur,
+        defaultValue: state.get.default().theme.background.timeofday.blur,
+        min: state.get.minMax().theme.background.timeofday.blur.min,
+        max: state.get.minMax().theme.background.timeofday.blur.max,
+        action: () => {
+          applyCSSVar('theme.background.timeofday.blur');
+          data.save();
+        }
+      }),
+      grayscale: new Control_sliderSlim({
+        object: state.get.current(),
+        path: 'theme.background.timeofday.grayscale',
+        id: 'theme-background-timeofday-grayscale',
+        labelText: message.get('menuContentThemeBackgroundImageGrayscale'),
+        value: state.get.current().theme.background.timeofday.grayscale,
+        defaultValue: state.get.default().theme.background.timeofday.grayscale,
+        min: state.get.minMax().theme.background.timeofday.grayscale.min,
+        max: state.get.minMax().theme.background.timeofday.grayscale.max,
+        action: () => {
+          applyCSSVar('theme.background.timeofday.grayscale');
+          data.save();
+        }
+      }),
+      scale: new Control_sliderSlim({
+        object: state.get.current(),
+        path: 'theme.background.timeofday.scale',
+        id: 'theme-background-timeofday-scale',
+        labelText: message.get('menuContentThemeBackgroundImageScale'),
+        value: state.get.current().theme.background.timeofday.scale,
+        defaultValue: state.get.default().theme.background.timeofday.scale,
+        min: state.get.minMax().theme.background.timeofday.scale.min,
+        max: state.get.minMax().theme.background.timeofday.scale.max,
+        action: () => {
+          applyCSSVar('theme.background.timeofday.scale');
+          data.save();
+        }
+      }),
+      accent: new Control_sliderSlim({
+        object: state.get.current(),
+        path: 'theme.background.timeofday.accent',
+        id: 'theme-background-timeofday-accent',
+        labelText: message.get('menuContentThemeBackgroundImageAccent'),
+        value: state.get.current().theme.background.timeofday.accent,
+        defaultValue: state.get.default().theme.background.timeofday.accent,
+        min: state.get.minMax().theme.background.timeofday.accent.min,
+        max: state.get.minMax().theme.background.timeofday.accent.max,
+        action: () => {
+          applyCSSVar('theme.background.timeofday.accent');
+          data.save();
+        }
+      }),
+      opacity: new Control_sliderSlim({
+        object: state.get.current(),
+        path: 'theme.background.timeofday.opacity',
+        id: 'theme-background-timeofday-opacity',
+        labelText: message.get('menuContentThemeBackgroundImageOpacity'),
+        value: state.get.current().theme.background.timeofday.opacity,
+        defaultValue: state.get.default().theme.background.timeofday.opacity,
+        min: state.get.minMax().theme.background.timeofday.opacity.min,
+        max: state.get.minMax().theme.background.timeofday.opacity.max,
+        action: () => {
+          applyCSSVar('theme.background.timeofday.opacity');
+          data.save();
+        }
+      }),
+      vignette: {
+        opacity: new Control_sliderSlim({
+          object: state.get.current(),
+          path: 'theme.background.timeofday.vignette.opacity',
+          id: 'theme-background-timeofday-vignette-opacity',
+          labelText: message.get('menuContentThemeBackgroundImageVignetteOpacity'),
+          value: state.get.current().theme.background.timeofday.vignette.opacity,
+          defaultValue: state.get.default().theme.background.timeofday.vignette.opacity,
+          min: state.get.minMax().theme.background.timeofday.vignette.opacity.min,
+          max: state.get.minMax().theme.background.timeofday.vignette.opacity.max,
+          action: () => {
+            applyCSSVar('theme.background.timeofday.vignette.opacity');
+            data.save();
+          }
+        }),
+        range: new Control_sliderDouble({
+          object: state.get.current(),
+          labelText: message.get('menuContentThemeBackgroundImageVignetteRangeLabel'),
+          left: {
+            path: 'theme.background.timeofday.vignette.end',
+            id: 'theme-background-timeofday-vignette-end',
+            labelText: message.get('menuContentThemeBackgroundImageVignetteRangeLeft'),
+            value: state.get.current().theme.background.timeofday.vignette.end,
+            defaultValue: state.get.default().theme.background.timeofday.vignette.end,
+            min: state.get.minMax().theme.background.timeofday.vignette.end.min,
+            max: state.get.minMax().theme.background.timeofday.vignette.end.max,
+            action: () => {
+              applyCSSVar('theme.background.timeofday.vignette.start');
+              applyCSSVar('theme.background.timeofday.vignette.end');
+              data.save();
+            }
+          },
+          right: {
+            path: 'theme.background.timeofday.vignette.start',
+            id: 'theme-background-timeofday-vignette-start',
+            labelText: message.get('menuContentThemeBackgroundImageVignetteRangeRight'),
+            value: state.get.current().theme.background.timeofday.vignette.start,
+            defaultValue: state.get.default().theme.background.timeofday.vignette.start,
+            min: state.get.minMax().theme.background.timeofday.vignette.start.min,
+            max: state.get.minMax().theme.background.timeofday.vignette.start.max,
+            action: () => {
+              applyCSSVar('theme.background.timeofday.vignette.start');
+              applyCSSVar('theme.background.timeofday.vignette.end');
+              data.save();
+            }
+          }
+        })
+      }
     }
   };
 
@@ -1718,6 +1930,26 @@ themeSetting.background = (parent) => {
       ]
     })
   ]);
+  
+  const themeBackgroundTimeOfDayArea = node('div', [
+    themeSetting.control.background.timeofday.alert.wrap(),
+    themeSetting.control.background.timeofday.data.wrap(),
+    themeSetting.control.background.timeofday.blur.wrap(),
+    themeSetting.control.background.timeofday.grayscale.wrap(),
+    themeSetting.control.background.timeofday.scale.wrap(),
+    themeSetting.control.background.timeofday.accent.wrap(),
+    themeSetting.control.background.timeofday.opacity.wrap(),
+    themeSetting.control.background.timeofday.vignette.opacity.wrap(),
+    form.wrap({
+      children: [
+        form.indent({
+          children: [
+            themeSetting.control.background.timeofday.vignette.range.wrap()
+          ]
+        })
+      ]
+    })
+  ]);
 
   themeSetting.control.background.typeCollapse = new Collapse({
     type: 'radio',
@@ -1734,6 +1966,9 @@ themeSetting.background = (parent) => {
     }, {
       id: themeSetting.control.background.type.radioSet[5].radio.value,
       content: themeBackgroundVideoArea
+    }, {
+      id: themeSetting.control.background.type.radioSet[6].radio.value,
+      content: themeBackgroundTimeOfDayArea
     }]
   });
 

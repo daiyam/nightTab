@@ -213,6 +213,12 @@ layout.overscroll = {
           html.style.setProperty('--theme-background-video-blur', parseInt(state.get.current().theme.background.video.blur - ((parseInt(((bottomOfBody) / overscrollHeight) * 100, 10) / 100) * state.get.current().theme.background.video.blur), 10));
 
           break;
+        
+        case 'timeofday':
+
+          html.style.setProperty('--theme-background-timeofday-blur', parseInt(state.get.current().theme.background.timeofday.blur - ((parseInt(((bottomOfBody) / overscrollHeight) * 100, 10) / 100) * state.get.current().theme.background.timeofday.blur), 10));
+
+          break;
 
       }
 
@@ -220,7 +226,8 @@ layout.overscroll = {
 
       applyCSSVar([
         'theme.background.image.blur',
-        'theme.background.video.blur'
+        'theme.background.video.blur',
+        'theme.background.timeofday.blur'
       ]);
 
     }

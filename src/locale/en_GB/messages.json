@@ -623,6 +623,10 @@
     "message": "Video",
     "description": "Radio for background type video."
   },
+   "menuContentThemeBackgroundTypeTimeOfDay": {
+    "message": "Time of Day",
+    "description": "Radio for background type timeofday."
+  },
   "menuContentThemeBackgroundColor": {
     "message": "Background colour",
     "description": "Label for background colour."
@@ -766,6 +770,18 @@
   "menuContentThemeBackgroundVideoVignetteRangeRight": {
     "message": "Shade start",
     "description": "Range for video vignette right."
+  },
+   "menuContentThemeBackgroundTimeOfDayDataLabel": {
+    "message": "Data",
+    "description": "Input for the data of background time of day."
+  },
+  "menuContentThemeBackgroundTimeOfDayDataPlaceholder": {
+    "message": "[]",
+    "description": "Placeholder for the data of background time of day."
+  },
+  "menuContentThemeBackgroundTimeOfDayAlertPara1": {
+    "message": "The data is a JSON data structure.",
+    "description": "Alert for background time of day."
   },
   "menuContentThemeLayoutColorLabel": {
     "message": "Layout background colour",

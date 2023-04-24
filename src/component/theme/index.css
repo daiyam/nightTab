@@ -419,11 +419,51 @@
   pointer-events: none;
 }
 
+.theme-background-type-timeofday-wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background-image: var(--theme-background-timeofday);
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  opacity: calc(var(--theme-background-timeofday-opacity) / 100);
+  transform: scale(calc(calc(var(--theme-background-timeofday-scale) / 100) + calc(var(--theme-background-timeofday-blur) / 400)));
+  filter: blur(calc(var(--theme-background-timeofday-blur) * 1px)) grayscale(calc(var(--theme-background-timeofday-grayscale) / 100));
+}
+
+.theme-background-type-timeofday-accent {
+  background-color: rgba(var(--theme-accent), calc(var(--theme-background-timeofday-accent) / 100));
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+.theme-background-type-timeofday-vignette {
+  position: absolute;
+  top: -1em;
+  left: -1em;
+  width: calc(100vw + 2em);
+  height: calc(100vh + 2em);
+  pointer-events: none;
+  background-image: radial-gradient(circle,
+      transparent calc(var(--theme-background-timeofday-vignette-end) * 1%),
+      rgba(0, 0, 0, calc(var(--theme-background-timeofday-vignette-opacity) / 100)) calc(var(--theme-background-timeofday-vignette-start) * 1%));
+  z-index: 3;
+}
+
 .is-theme-background-type-theme .theme-background-type-theme,
 .is-theme-background-type-accent .theme-background-type-accent,
 .is-theme-background-type-color .theme-background-type-color,
 .is-theme-background-type-gradient .theme-background-type-gradient,
 .is-theme-background-type-image .theme-background-type-image,
-.is-theme-background-type-video .theme-background-type-video {
+.is-theme-background-type-video .theme-background-type-video,
+.is-theme-background-type-timeofday .theme-background-type-timeofday {
   opacity: 1;
 }
