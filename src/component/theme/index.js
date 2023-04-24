@@ -18,6 +18,7 @@ import { applyCSSVar } from '../../utility/applyCSSVar';
 import { applyCSSClass } from '../../utility/applyCSSClass';
 import { applyCSSState } from '../../utility/applyCSSState';
 
+import moment from 'moment';
 import WebFont from 'webfontloader';
 
 import './index.css';
@@ -340,6 +341,12 @@ theme.background = {
         accent: node('div|class:theme-background-type-video-accent'),
         vignette: node('div|class:theme-background-type-video-vignette')
       },
+      timeofday: {
+        imageElement: node('div|class:theme-background-type theme-background-type-timeofday'),
+        wrap: node('div|class:theme-background-type-timeofday-wrap'),
+        accent: node('div|class:theme-background-type-timeofday-accent'),
+        vignette: node('div|class:theme-background-type-timeofday-vignette')
+      },
     },
     video: false
   }
@@ -366,6 +373,15 @@ theme.background.area = {
           theme.background.element.type.video.videoElement.appendChild(theme.background.element.type.video.accent);
           theme.background.element.type.video.videoElement.appendChild(theme.background.element.type.video.vignette);
           theme.background.element.background.appendChild(theme.background.element.type.video.videoElement);
+
+          break;
+
+        case 'timeofday':
+
+          theme.background.element.type.timeofday.imageElement.appendChild(theme.background.element.type.timeofday.wrap);
+          theme.background.element.type.timeofday.imageElement.appendChild(theme.background.element.type.timeofday.accent);
+          theme.background.element.type.timeofday.imageElement.appendChild(theme.background.element.type.timeofday.vignette);
+          theme.background.element.background.appendChild(theme.background.element.type.timeofday.imageElement);
 
           break;
 
@@ -463,6 +479,113 @@ theme.background.video = {
   }
 };
 
+theme.background.timeofday = {
+  dayTimer: false,
+  hourTimer: false,
+  data: null,
+  currentImage: null,
+  currentSet: null,
+  load: () => {
+
+    if (theme.background.timeofday.hourTimer) {
+      clearTimeout(theme.background.timeofday.hourTimer);
+
+      theme.background.timeofday.hourTimer = false;
+    }
+    if (theme.background.timeofday.dayTimer) {
+      clearTimeout(theme.background.timeofday.dayTimer);
+
+      theme.background.timeofday.dayTimer = false;
+    }
+
+    theme.background.timeofday.data = null;
+    theme.background.timeofday.currentImage = null;
+    theme.background.timeofday.currentSet = null;
+
+    if (!state.get.current().theme.background.timeofday || !isValidString(state.get.current().theme.background.timeofday.data)) return;
+
+    try {
+      theme.background.timeofday.data = JSON.parse(state.get.current().theme.background.timeofday.data);
+    } catch (err) {
+      console.error(err);
+    }
+
+    theme.background.timeofday.loadNewSet();
+
+  },
+  loadNewImage: () => {
+
+    if (theme.background.timeofday.hourTimer) {
+      clearTimeout(theme.background.timeofday.hourTimer);
+
+      theme.background.timeofday.hourTimer = false;
+    }
+    
+    if (!theme.background.timeofday.currentSet) return;
+
+    const hour = new Date().getHours();
+
+    for (const period of theme.background.timeofday.currentSet.periods) {
+      if (hour < period.time[0]) continue;
+      if (period.time[1] && hour >= period.time[1]) continue;
+
+      theme.background.timeofday.currentImage = period.image;
+
+      const start = moment();
+      const end = start.clone().startOf('hour').set('hour', period.time[1] || 24);
+      const timeout = end.diff(start);
+
+      theme.background.timeofday.hourTimer = setTimeout(theme.background.timeofday.loadNewImage, timeout);
+
+      break;
+    }
+
+    theme.background.timeofday.render();
+
+  },
+  loadNewSet: () => {
+
+    if (theme.background.timeofday.dayTimer) {
+      clearTimeout(theme.background.timeofday.dayTimer);
+
+      theme.background.timeofday.dayTimer = false;
+    }
+
+    if (!theme.background.timeofday.data) return;
+
+    const allSets = theme.background.timeofday.data.filter(({ enable }) => enable);
+    if (allSets.length === 0) return;
+
+    theme.background.timeofday.currentSet = allSets[Math.floor(Math.random() * allSets.length)];
+
+    theme.background.timeofday.loadNewImage();
+
+    if (allSets.length > 1) {
+      const start = moment();
+      const end = start.clone().endOf('day');
+      const timeout = end.diff(start);
+
+      theme.background.timeofday.dayTimer = setTimeout(theme.background.timeofday.loadNewSet, timeout);
+    }
+
+  },
+  render: () => {
+
+    const html = document.querySelector('html');
+
+    if (theme.background.timeofday.currentImage) {
+
+      html.style.setProperty('--theme-background-timeofday', 'url("' + theme.background.timeofday.currentImage + '")');
+
+    } else {
+
+      html.style.removeProperty('--theme-background-timeofday');
+
+    }
+
+  }
+};
+
 theme.init = () => {
   theme.style.initial();
   theme.style.bind();
@@ -474,6 +597,7 @@ theme.init = () => {
   theme.background.area.render();
   theme.background.image.load();
   theme.background.video.render();
+  theme.background.timeofday.load();
   applyCSSVar([
     'theme.accent.rgb.r',
     'theme.accent.rgb.g',
@@ -508,6 +632,14 @@ theme.init = () => {
     'theme.background.video.vignette.opacity',
     'theme.background.video.vignette.start',
     'theme.background.video.vignette.end',
+    'theme.background.timeofday.blur',
+    'theme.background.timeofday.grayscale',
+    'theme.background.timeofday.scale',
+    'theme.background.timeofday.accent',
+    'theme.background.timeofday.opacity',
+    'theme.background.timeofday.vignette.opacity',
+    'theme.background.timeofday.vignette.start',
+    'theme.background.timeofday.vignette.end',
     'theme.background.gradient.angle',
     'theme.background.gradient.start.rgb.r',
     'theme.background.gradient.start.rgb.g',

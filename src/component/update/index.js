@@ -244,10 +244,12 @@ update.mod['7.0.0'] = function(data) {
 
   data.state.theme.background.image = data.state.theme.background.visual.image;
   data.state.theme.background.video = data.state.theme.background.visual.video;
+  data.state.theme.background.timeofday = data.state.theme.background.visual.timeofday;
 
   delete data.state.theme.background.visual;
   delete data.state.theme.background.image.type;
   delete data.state.theme.background.video.type;
+  delete data.state.theme.background.timeofday.type;
 
   data.state.theme.radius = data.state.theme.radius * 100;
   data.state.theme.shadow = data.state.theme.shadow * 100;
@@ -652,6 +654,7 @@ update.mod['7.6.0'] = function(data) {
   }
 
   data.state.theme.background.image.refresh = 0;
+  data.state.theme.background.timeofday = { data: '', blur: 0, grayscale: 0, scale: 100, accent: 0, opacity: 100, vignette: { opacity: 0, start: 90, end: 70 } };
 
   return data;
 

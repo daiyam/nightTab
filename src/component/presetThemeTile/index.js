@@ -83,6 +83,8 @@ export const PresetThemeTile = function ({
         theme.background.video.clear();
 
         theme.background.video.render();
+        
+        theme.background.timeofday.load();
 
         themeSetting.control.style.update();
 
@@ -236,6 +238,14 @@ export const PresetThemeTile = function ({
           'theme.background.video.vignette.opacity',
           'theme.background.video.vignette.start',
           'theme.background.video.vignette.end',
+          'theme.background.timeofday.blur',
+          'theme.background.timeofday.grayscale',
+          'theme.background.timeofday.scale',
+          'theme.background.timeofday.accent',
+          'theme.background.timeofday.opacity',
+          'theme.background.timeofday.vignette.opacity',
+          'theme.background.timeofday.vignette.start',
+          'theme.background.timeofday.vignette.end',
           'theme.background.gradient.angle',
           'theme.background.gradient.start.rgb.r',
           'theme.background.gradient.start.rgb.g',
