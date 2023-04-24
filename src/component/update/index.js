@@ -651,6 +651,8 @@ update.mod['7.6.0'] = function(data) {
 
   }
 
+  data.state.theme.background.image.refresh = 0;
+
   return data;
 
 };
