@@ -553,7 +553,7 @@ theme.background.timeofday = {
 
     if (!theme.background.timeofday.data) return;
 
-    const allSets = theme.background.timeofday.data.filter(({ enable }) => enable);
+    const allSets = theme.background.timeofday.data.filter(({ enable }) => enable || typeof enable === 'undefined');
     if (allSets.length === 0) return;
 
     theme.background.timeofday.currentSet = allSets[Math.floor(Math.random() * allSets.length)];
